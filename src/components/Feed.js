@@ -16,9 +16,7 @@ const Feed = (props) => {
     return (
         <React.Fragment>
         <Form/>
-        <div>
-            {posts}
-        </div>
+        <PostDetail />
     </React.Fragment>
     )
 }
