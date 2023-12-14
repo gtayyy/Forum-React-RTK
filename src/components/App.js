@@ -4,19 +4,18 @@ import Feed from './Feed'
 import Form from './Form'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { selectPost } from '../app/selectedPostSlice'
-import { postListSelector } from '../app/postListSlice'
-import { addPost } from '../app/postListSlice';
+import { postsSelector } from '../app/postListSlice'
+import { addPost, selectPost } from '../app/postListSlice';
 import { useSelector } from 'react-redux'
 
 
 
 function App() {
   const  dispatch = useDispatch();
-  const postList = useSelector(postListSelector)
+  const posts = useSelector(postsSelector)
 
   const handlePostDisplay = (id) => {
-    dispatch(selectPost({ postId: id }));
+    dispatch(selectPost({ id: id }));
     
   }
 
@@ -24,14 +23,29 @@ function App() {
     dispatch(addPost({id: postInfo.id, form: postInfo}))
   }
 
+  const upVote = (postId) => {
+    
+  }
+
+  const downVote = (postId) => {
+
+  }
+
+  console.log(posts.postList)
+
   return (
     <React.Fragment>
       <Header />
       <Feed
-      postList={postList} 
-      handlePostDisplay={handlePostDisplay}/>
+      postList={posts.postList} 
+      handlePostDisplay={handlePostDisplay}
+      handleUpvoting={upVote}
+      handleDownvoting={downVote} />
       <Form
       handleNewPost={handleNewPost} />
+      <h3>{posts.selectedPost.postTitle}</h3>
+      <h4>{posts.selectedPost.subTitle}</h4>
+      <p>{posts.selectedPost.content}</p>
     </React.Fragment>
   )
 }

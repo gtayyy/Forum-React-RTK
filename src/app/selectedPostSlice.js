@@ -1,21 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { postListSelector } from './postListSlice'
+// import { createSlice } from '@reduxjs/toolkit';
+// import { postListSelector } from './postListSlice';
 
 
-export const selectedPostSlice = createSlice({
-	name: 'selectedPost',
-	initialState: {},
-	reducers: {
-		selectPost: (state, action) => {
-      const postList = postListSelector;
-			const { postId } = action.payload;
-			return postList[postId]
-		}
-	}
-})
 
-export default selectedPostSlice.reducer;
+// export const selectedPostSlice = createSlice({
+// 	name: 'selectedPost',
+// 	initialState: {},
+// 	reducers: {
+// 		selectPost: (state, action) => {
+			
+// 			const { postId } = action.payload;
+// 			const newList = [...postList]
+// 			return newList.find((post) => post.id === postId) || {};
+// 		}
+		
+// 	}
+// })
 
-export const { selectPost } = selectedPostSlice.actions;
+// export default selectedPostSlice.reducer;
 
-export const selectedPostSelector = (state) => state.selectedPost;
+// export const { selectPost } = selectedPostSlice.actions;
+
+// export const selectedPostSelector = (state) => state.selectedPost;

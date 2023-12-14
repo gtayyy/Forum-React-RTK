@@ -8,6 +8,7 @@ const Form = (props) => {
         postTitle: "",
         subTitle: "",
         content: "",
+        vote: 0,
         id: ""
       })
 
