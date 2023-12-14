@@ -7,7 +7,7 @@ export const selectedPostSlice = createSlice({
 	initialState: {},
 	reducers: {
 		selectPost: (state, action) => {
-            const postList = postListSelector;
+      const postList = postListSelector;
 			const { postId } = action.payload;
 			return postList[postId]
 		}
@@ -16,6 +16,6 @@ export const selectedPostSlice = createSlice({
 
 export default selectedPostSlice.reducer;
 
-export const { selectPost } = selectedPost.actions;
+export const { selectPost } = selectedPostSlice.actions;
 
 export const selectedPostSelector = (state) => state.selectedPost;
