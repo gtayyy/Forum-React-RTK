@@ -10,6 +10,7 @@ const Feed = (props) => {
                 <h4>Sum of Votes: {post.vote}</h4>
                 <button onClick={() => props.handleUpvoting(post.id)}>Upvote</button>
                 <button onClick={() => props.handleDownvoting(post.id)}>Downvote</button>
+                <button onClick={() => props.handleDelete(post.id)}>Delete post</button>
                 <hr/>
             </div>
     )

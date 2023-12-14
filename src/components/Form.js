@@ -1,6 +1,7 @@
 import React from 'react'
 import { v4 } from 'uuid';
 import { useState } from 'react';
+import "./Form.css";
 
 const Form = (props) => {
 
@@ -56,7 +57,7 @@ return (
           }
           }/>
       </label>
-      <button type="submit">Create Post</button>
+      <button type="submit">Post!</button>
     </form>
   </React.Fragment>
 )

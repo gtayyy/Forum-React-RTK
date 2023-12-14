@@ -17,7 +17,8 @@ export const postsSlice = createSlice({
             state.selectedPost = state.postList.find((post) => post.id === id) || {};
         },
         sortList: (state, action) => {
-            state.sortedList = state.postList.sort((a, b) => b.vote - a.vote)
+            const copiedList = [...state.postList]
+            state.sortedList = copiedList.sort((a, b) => b.vote - a.vote)
         },
         upVote: (state, action) => {
             const { id } = action.payload;
@@ -43,7 +44,7 @@ export const postsSlice = createSlice({
         },
         deletePost: (state, action) => {
             const { id } = action.payload;
-            return state.postList.filter((post) => post.id !== id)
+            state.postList = state.postList.filter((post) => post.id !== id)
         }
     }
 })
