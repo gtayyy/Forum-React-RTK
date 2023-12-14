@@ -5,7 +5,7 @@ import Form from './Form'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { postsSelector } from '../app/postListSlice'
-import { addPost, selectPost } from '../app/postListSlice';
+import { addPost, selectPost, sortList, upVote, downVote } from '../app/postListSlice';
 import { useSelector } from 'react-redux'
 
 
@@ -21,26 +21,29 @@ function App() {
 
   const handleNewPost = (postInfo) => {
     dispatch(addPost({id: postInfo.id, form: postInfo}))
+    dispatch(sortList({id: postInfo.id}));
   }
 
-  const upVote = (postId) => {
-    
+  const upVoting = (postId) => {
+    dispatch(upVote({ id: postId }));
+    dispatch(sortList({id: postId}));
   }
 
-  const downVote = (postId) => {
-
+  const downVoting = (postId) => {
+    dispatch(downVote({ id: postId }));
+    dispatch(sortList({id: postId}));
   }
 
-  console.log(posts.postList)
+  console.log(posts.sortedList)
 
   return (
     <React.Fragment>
       <Header />
       <Feed
-      postList={posts.postList} 
+      postList={posts.sortedList} 
       handlePostDisplay={handlePostDisplay}
-      handleUpvoting={upVote}
-      handleDownvoting={downVote} />
+      handleUpvoting={upVoting}
+      handleDownvoting={downVoting} />
       <Form
       handleNewPost={handleNewPost} />
       <h3>{posts.selectedPost.postTitle}</h3>
