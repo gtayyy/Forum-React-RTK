@@ -3,6 +3,7 @@ import Header from './Header'
 import Feed from './Feed'
 import Form from './Form'
 import React from 'react'
+import PostDetails from './PostDetail'
 import { useDispatch } from 'react-redux'
 import { postsSelector } from '../app/postListSlice'
 import { addPost, selectPost, sortList, upVote, downVote, deletePost } from '../app/postListSlice';
@@ -18,12 +19,12 @@ function App() {
   const view = useSelector(pageViewSelector);
   const pageViews = {
     popular: 1,
-    oldest: 2
+    oldest: 2,
+    postDetails: 3
   };
 
   const handlePostDisplay = (id) => {
     dispatch(selectPost({ id: id }));
-    
   }
 
   const handleNewPost = (postInfo) => {
@@ -46,10 +47,6 @@ function App() {
     dispatch(sortList());
   }
 
-  console.log(posts.postList)
-  console.log(posts.sortedList)
-
-
   let currentView;
 
   if (view.page === pageViews.popular) {
@@ -65,12 +62,17 @@ function App() {
   } else if (view.page === pageViews.oldest) {
 
     currentView = 
+    
     <Feed
       postList={posts.postList} 
       handlePostDisplay={handlePostDisplay}
       handleUpvoting={upVoting}
       handleDownvoting={downVoting}
       handleDelete={deleteAPost} />
+  } else if (view.page === pageViews.postDetails) {
+
+    currentView =
+    <PostDetails/>
   }
 
   return (

@@ -3,7 +3,9 @@ import React from "react";
 const Header = () => {
     return (
         <React.Fragment>
-        <h1>Forum Site</h1>
+        <div className="header">
+            <h1>Forum Site</h1>
+        </div>
         </React.Fragment>
     )
 }

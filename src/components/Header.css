@@ -1,8 +1,13 @@
 h1 {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Roboto',sans-serif;
 	font-display: block;
 	letter-spacing: .5em;
 	text-transform: uppercase;
 	text-decoration-line: underline overline;
 	text-decoration-thickness: 3px;
+	background-color: #c4deb0;
+}
+
+.header {
+	background-color: #c4deb0;	
 }
