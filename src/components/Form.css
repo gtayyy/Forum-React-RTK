@@ -4,6 +4,7 @@ label {
 	letter-spacing: .5em;
 	text-transform: uppercase;
 	font-size: xx-small;
+	font-weight: 200;
 }
 
 .formColumn > .App > button {
@@ -15,7 +16,7 @@ label {
 	box-sizing: border-box;
 	font-family: 'Roboto',sans-serif;
 	font-weight: 200;
-	color:#000000;
+	color:#1c2698;
 	background-color: #FFFFFF;
 	text-align: center;
 	text-transform: uppercase;
@@ -25,7 +26,7 @@ label {
 }
 .formColumn > .App > button:hover {
 	color: #FFFFFF;
-	background-color: #000000;
+	background-color: #212fc7;
 }
 @media all and (max-width:30em) {
 	.App button{
